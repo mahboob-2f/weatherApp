@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>weather app</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style2.css">
+</head>
+
+<body class="    min-h-[100vh] mx-auto to-[#314255] w-[100vw]   ">
+
+    <div class="wrapper max-w-[550px]   mx-auto flex justify-center flex-col relative top-8 ">
+        <h1 class="text-white font-[700] text-[32px] tracking-[1.75px] text-center  ">WEATHER APP</h1>
+
+        <!--   tabs  -->
+
+        <div class="flex justify-between mt-[50px] items-center w-full mx-auto cursor-pointer">
+            <p data-yourWeather class="text-[white] p-[2px] ml-3 px-[3px] "><span
+                    class="opacity-80 font-[14px] tracking-[1.75px]">Your Weather</span>
+            </p>
+            <p data-searchWeather class="text-[white] p-[2px] cursor-pointer px-[3px]   mr-[0.4rem] "><span
+                    class="opacity-80 font-[14px] tracking-[1.75px]  ">Search
+                    Weather</span></p>
+        </div>
+
+        <!--    main content box container -->
+
+        <div class="weather-container w-full ">
+
+            <!--  grant location section   -->
+
+            <div class="grant-weather-location     w-full   flex  flex-col items-center mt-14">
+
+                <img src="./assets/location.png" loading="lazy" width="80" height="80">
+                <p class="text-[28px] font-[600] mt-7 h-[35.2px] tracking-normal">Grant Location Access</p>
+                <p class="tracking-[0.75px] text-[14px] my-[12px] text-[#f9f7f7] font-[300] message">Allow Access To Get Weather
+                    Information</p>
+                <button data-grantAccess-btn
+                    class="bg-[#3f72af] p-[8px] rounded-md px-[24px] text-[13.5px] font-[500] mt-2 cursor-pointer">GRANT
+                    ACCESS</button>
+
+            </div>
+
+            <!--  search weather form section  -->
+
+            <div class="search-form-container w-full  flex justify-center items-center mx-auto mt-12   -translate-x-2 ">
+                <form action="" class="w-full flex gap-1 justify-between  ">
+                    <input required data-serachinput placeholder="Search for City... "
+                        class=" bg-[#b1b9c8]  appearance-none  h-[35px] rounded-[7px] px-[20px] w-[calc(100%-61px)] text-[18px] focus:border-3
+                                 focus:border-b-[white] opacity-80 placeholder:text-[#F9F7F7] outline-none focus:border-white mx-auto mr-0  ">
+                    <button data-searchButton type="submit"
+                        class="bg-[#3F72AF] w-[35px] h-[35px] flex justify-center items-center rounded-full ">
+                        <img src="./assets/search.png" width="20" height="20" loading="lazy">
+                    </button>
+
+                </form>
+            </div>
+
+            <!--  error container -->
+
+            <div error-container class="flex justify-center items-center flex-col error-container mt-16">   
+                <img src="./assets/not-found.png" width="300" height="300" class="max-mobile:w-[250px] max-mobile:h-[250px]">
+                <p class="font-medium max-mobile:text-[20px] max-mobile:font-bold">city not found</p>
+            </div>
+
+            <!--  loading screen section  -->
+
+            <div class="loading-screen-container  w-full flex justify-center items-center flex-col space-y-3 mt-20">
+                <img src="./assets/loading.gif" width="150" height="150" loading="lazy">
+                <p class="uppercase font-[#f9f7f7] text-[18px] font-semibold tracking-[0.3px] ">Loading</p>
+            </div>
+
+            <!-- SHOW weather INFO  section  -->
+
+            <div class="user-info-container w-full flex flex-col space-y-2 items-center mt-12 max-tab:mt-8">
+                <div class="flex justify-evenly items-center my-[6px] gap-1 ">
+                    <p data-cityName class="text-[32px] font-extralight max-mobile:font-bold"> </p>
+                    <img data-countryIcon width="30" height="30" class="border-0">
+                </div>
+                <p data-Weatherdesciption class="text-[24px]"></p>
+                <img data-weatherIcon width="90" height="90">
+                <p data-temp class="text-[44px] after:content-[''] font-bold max-tab:font-medium"></p>
+
+                <!--   three box section -->
+                <div box-container class="flex  gap-4 mt-3 z-10 max-tab:gap-2 max-tab:ml-3 max-tab:flex-wrap max-tab:flex-row">
+                    <div
+                        class="bg-[rgba(219,226,239,0.6)] opacity-50 z-40 text-[#ffffff] p-4 pt-1 pb-[6px] flex flex-col items-center space-y-2 rounded-md px-6 w-[30%] max-w-[200px] ">
+                        <img src="./assets/wind.png" height="50" width="50" loading="lazy" class="z-40 max-tab:h-[55px] max-tab:w-[55px]">
+                        <p class="text-[24px] z-40 max-tab:text-[17px] max-tab:font-bold ">WINDSPEED</p>
+                        <p data-windSpeed class="text-[24px] after:content-['m/s'] z-40 max-tab:text-[17px] max-tab:font-bold"></p>
+                    </div>
+                    <div
+                        class="bg-[#dbe2ef98] z-40 opacity-50 text-[#ffffff] p-4 flex flex-col pt-1 pb-[6px]   items-center space-y-2 rounded-md px-6 w-[30%] max-w-[200px] ">
+                        <img src="./assets/humidity.png" height="50" width="50" loading="lazy" class="z-40 max-tab:h-[55px] max-tab:w-[55px]">
+                        <p class="text-[24px] z-40 max-tab:text-[17px] max-tab:font-bold  ">HUMIDITY</p>
+                        <p data-humidity class="text-[24px] after:content-['%'] z-40 max-tab:text-[17px] max-tab:font-bold"></p>
+                    </div>
+                    <div
+                        class="bg-[#dbe2ef98] z-40 opacity-50 text-[#ffffff] p-4 flex flex-col  pt-1 pb-[6px]  items-center space-y-2 rounded-md px-6  w-[30%] max-w-[200px]  ">
+                        <img src="./assets/cloud.png" height="50" width="50" loading="lazy" class="z-40 max-tab:h-[55px] max-tab:w-[55px]">
+                        <p class="text-[24px] z-40 max-tab:text-[16px] max-tab:font-bold">CLOUDS</p>
+                        <p data-clouds class="text-[24px] after:content-['%'] z-40 max-tab:text-[17px] max-tab:font-bold"></p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script src="./index.js"></script>
+</body>
+
+</html>
